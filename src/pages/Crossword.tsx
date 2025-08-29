@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CrosswordGame from '../games/crossword/CrosswordGame'
 
 function Crossword() {
   return (
@@ -31,21 +32,8 @@ function Crossword() {
           </p>
         </div>
 
-        {/* Placeholder for the game */}
-        <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-          <div className="text-6xl mb-4">🎯</div>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Juego Crucigrama
-          </h2>
-          <p className="text-gray-600 mb-6">
-            El componente del juego Crucigrama será integrado aquí.
-          </p>
-          <div className="bg-gray-100 rounded-lg p-8">
-            <p className="text-gray-500">
-              Área reservada para el juego Crucigrama
-            </p>
-          </div>
-        </div>
+        {/* Game Component */}
+        <CrosswordGame />
       </div>
     </div>
   )
