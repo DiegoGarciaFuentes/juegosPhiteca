@@ -1,0 +1,265 @@
+:root { 
+  --bg: #0f172a; 
+  --panel: #111827; 
+  --ink: #e5e7eb; 
+  --muted: #94a3b8; 
+  --accent: #22c55e; 
+  --accent-2: #ef4444; 
+  --card: #1f2937; 
+  --chip: #374151; 
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+.hangman-game {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+  background: radial-gradient(1000px 600px at 10% 5%, #0b1229 0%, var(--bg) 60%);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  min-height: 100vh;
+}
+
+.header { 
+  display: flex; 
+  gap: 16px; 
+  align-items: center; 
+  justify-content: space-between; 
+  margin-bottom: 16px; 
+}
+
+.header h1 { 
+  font-size: clamp(22px, 4vw, 32px); 
+  margin: 0; 
+}
+
+.tag { 
+  font-size: 12px; 
+  color: var(--muted); 
+}
+
+.grid { 
+  display: grid; 
+  gap: 16px; 
+  grid-template-columns: 1.2fr 1fr; 
+}
+
+@media (max-width: 900px) { 
+  .grid { 
+    grid-template-columns: 1fr; 
+  } 
+}
+
+.panel { 
+  background: linear-gradient(180deg, var(--panel), #0b1220); 
+  border: 1px solid #1f2937; 
+  border-radius: 16px; 
+  padding: 16px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,.35); 
+}
+
+.hangman { 
+  height: 320px; 
+  display: grid; 
+  place-items: center; 
+  background: var(--card); 
+  border-radius: 12px; 
+  border: 1px solid #293241; 
+}
+
+.word { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  justify-content: center; 
+  margin: 18px 0 8px; 
+  font-size: clamp(26px, 5vw, 44px); 
+}
+
+.word .slot { 
+  border-bottom: 3px solid #334155; 
+  min-width: 26px; 
+  text-align: center; 
+  padding: 0 4px; 
+}
+
+.hint { 
+  text-align: center; 
+  color: var(--muted); 
+  font-size: 14px; 
+  min-height: 20px; 
+}
+
+.keyboard { 
+  display: grid; 
+  grid-template-columns: repeat(9, 1fr); 
+  gap: 8px; 
+  margin-top: 12px; 
+}
+
+@media (max-width: 520px) { 
+  .keyboard { 
+    grid-template-columns: repeat(7, 1fr); 
+  } 
+}
+
+button.key { 
+  background: var(--chip); 
+  color: var(--ink); 
+  border: 1px solid #475569; 
+  border-radius: 10px; 
+  padding: 10px 0; 
+  font-weight: 600; 
+  cursor: pointer; 
+}
+
+button.key:disabled { 
+  opacity: .35; 
+  cursor: not-allowed; 
+}
+
+.key.wrong { 
+  background: #3a1f23; 
+  border-color: #7f1d1d; 
+}
+
+.key.right { 
+  background: #163421; 
+  border-color: #14532d; 
+}
+
+.controls { 
+  display: flex; 
+  gap: 10px; 
+  flex-wrap: wrap; 
+  align-items: center; 
+}
+
+.btn { 
+  background: #0b8f5a; 
+  border: 1px solid #14532d; 
+  color: white; 
+  padding: 10px 14px; 
+  border-radius: 12px; 
+  font-weight: 700; 
+  cursor: pointer; 
+}
+
+.btn.secondary { 
+  background: #374151; 
+  border-color: #4b5563; 
+}
+
+.btn.hint { 
+  background: #2563eb; 
+  border-color: #1e3a8a; 
+}
+
+.row { 
+  display: flex; 
+  gap: 12px; 
+  align-items: center; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+}
+
+.stats { 
+  display: flex; 
+  gap: 10px; 
+}
+
+.pill { 
+  background: var(--chip); 
+  padding: 6px 10px; 
+  border-radius: 999px; 
+  font-size: 12px; 
+}
+
+.pill.bad { 
+  background: #3a1f23; 
+  color: #fecaca; 
+}
+
+.pill.good { 
+  background: #163421; 
+  color: #bbf7d0; 
+}
+
+.custom-box { 
+  margin-top: 12px; 
+}
+
+textarea { 
+  width: 100%; 
+  min-height: 90px; 
+  border-radius: 10px; 
+  border: 1px solid #334155; 
+  background: #0b1220; 
+  color: var(--ink); 
+  padding: 10px; 
+}
+
+.small { 
+  font-size: 12px; 
+  color: var(--muted); 
+}
+
+.toast { 
+  text-align: center; 
+  font-weight: 700; 
+  margin-top: 8px; 
+}
+
+.toast.win { 
+  color: var(--accent); 
+}
+
+.toast.lose { 
+  color: var(--accent-2); 
+}
+
+.note { 
+  font-size: 12px; 
+  color: var(--muted); 
+  margin-top: 8px; 
+  text-align: center; 
+}
+
+/* Estilos para select e input */
+select, input {
+  background: #0b1220;
+  color: var(--ink);
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+select:focus, input:focus {
+  outline: none;
+  border-color: #0b8f5a;
+}
+
+label {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #334155;
+  margin: 16px 0;
+}
+
+h3 {
+  color: var(--ink);
+  font-size: 18px;
+  margin: 0 0 12px 0;
+}

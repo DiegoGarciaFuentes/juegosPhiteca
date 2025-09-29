@@ -59,14 +59,17 @@ function Games() {
               </Link>
             </div>
 
-            {/* Game Card 3 - Próximamente */}
+            {/* Game Card 3 - Ahorcado */}
             <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-xl font-semibold mb-2">Próximamente</h3>
-              <p className="text-orange-100 mb-4">Más juegos educativos están en desarrollo</p>
-              <button className="bg-white text-orange-600 px-4 py-2 rounded-lg font-semibold hover:bg-orange-50 transition-colors opacity-50 cursor-not-allowed">
-                Próximamente
-              </button>
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold mb-2">Ahorcado</h3>
+              <p className="text-orange-100 mb-4">Adivina la palabra antes de que se complete el ahorcado</p>
+              <Link 
+                to="/games/hangman" 
+                className="bg-white text-orange-600 px-4 py-2 rounded-lg font-semibold hover:bg-orange-50 transition-colors inline-block"
+              >
+                Jugar
+              </Link>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Games from './pages/Games'
 import Mastermind from './pages/Mastermind'
 import Crossword from './pages/Crossword'
+import Hangman from './pages/Hangman'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/games" element={<Games />} />
         <Route path="/games/mastermind" element={<Mastermind />} />
         <Route path="/games/crossword" element={<Crossword />} />
+        <Route path="/games/hangman" element={<Hangman />} />
       </Routes>
     </Router>
   )
