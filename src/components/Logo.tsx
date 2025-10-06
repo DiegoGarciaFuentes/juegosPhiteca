@@ -10,14 +10,12 @@ interface LogoProps {
   variant?: 'primary' | 'white' | 'dark' | 'icon';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
-  showText?: boolean;
 }
 
 const Logo: React.FC<LogoProps> = ({ 
   variant = 'primary', 
   size = 'md', 
-  className = '',
-  showText = true 
+  className = ''
 }) => {
   const sizeClasses = {
     sm: 'h-6',

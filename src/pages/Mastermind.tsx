@@ -1,21 +1,24 @@
 import { Link } from 'react-router-dom'
 import MastermindGame from '../games/mastermind/MastermindGame'
+import Logo from '../components/Logo'
 
 function Mastermind() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
+    <div className="min-h-screen bg-gradient-to-br from-white to-[#cae4db]">
       {/* Navigation */}
-      <nav className="bg-white shadow-lg">
+      <nav className="bg-white shadow-lg border-b-2 border-[#7a9e96]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link to="/" className="text-2xl font-bold text-indigo-600">JuegosPhiteca</Link>
+                <Link to="/" className="hover:opacity-80 transition-opacity">
+                  <Logo variant="primary" size="md" />
+                </Link>
               </div>
             </div>
             
             <div className="flex items-center space-x-4">
-              <Link to="/" className="text-gray-700 hover:text-indigo-600 transition-colors">
+              <Link to="/" className="text-[#00303f] hover:text-[#ffb41e] transition-colors font-medium">
                 ← Volver al Inicio
               </Link>
             </div>
@@ -26,8 +29,8 @@ function Mastermind() {
       {/* Game Container */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">🧠 Mastermind</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-[#00303f] mb-4">🧠 Mastermind</h1>
+          <p className="text-xl text-[#00303f]">
             Adivina la combinación de colores usando la lógica y el razonamiento
           </p>
         </div>

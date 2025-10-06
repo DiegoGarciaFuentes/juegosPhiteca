@@ -4,9 +4,12 @@ import { HangmanLogic } from './HangmanLogic';
 import './HangmanGame.css';
 
 const HangmanGame: React.FC = () => {
-  // Configuración del juego
+  // Estado del juego
+  const [allowedMisses, setAllowedMisses] = useState(6);
+  
+  // Configuración del juego (usa allowedMisses)
   const config: HangmanConfig = {
-    maxAttempts: 6,
+    maxAttempts: allowedMisses,
     words: [
       { word: "PROGRAMACION", hint: "Actividad de crear software", category: "Tecnología" },
       { word: "REACT", hint: "Biblioteca de JavaScript para interfaces", category: "Tecnología" },
@@ -16,10 +19,15 @@ const HangmanGame: React.FC = () => {
     ]
   };
 
-  // Estado del juego
+  // Lógica del juego (se recrea cuando cambia allowedMisses)
   const hangmanLogic = useRef(new HangmanLogic(config));
+  
+  // Actualizar la configuración cuando cambie allowedMisses
+  useEffect(() => {
+    hangmanLogic.current = new HangmanLogic(config);
+  }, [allowedMisses]);
+  
   const [currentGame, setCurrentGame] = useState(() => hangmanLogic.current.startNewGame());
-  const [allowedMisses, setAllowedMisses] = useState(6);
   const [hintsLeft, setHintsLeft] = useState(3);
   const [selectedTheme, setSelectedTheme] = useState('mezcla');
   const [customList, setCustomList] = useState<string>('');
@@ -128,10 +136,10 @@ const HangmanGame: React.FC = () => {
     setToast({ message: `La palabra era: "${currentGame.currentWord}"`, type: 'lose' });
   }, [currentGame.currentWord]);
 
-  // Aplicar configuración
+  // Aplicar configuración - iniciar nuevo juego cuando cambie allowedMisses
   const applyConfig = useCallback(() => {
-    setAllowedMisses(Math.max(4, Math.min(6, 10)));
-  }, []);
+    startGame();
+  }, [startGame]);
 
   // Usar lista personalizada
   const useCustomList = useCallback(() => {
@@ -246,7 +254,7 @@ const HangmanGame: React.FC = () => {
             <line x1="196" y1="40" x2="196" y2="80" stroke="#7a9e96" strokeWidth="8" />
               
               {/* Partes del muñeco */}
-              <line id="hg-noose" x1="196" y1="80" x2="196" y2="92" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(0)} />
+              <line id="hg-noose" x1="196" y1="80" x2="196" y2="82" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(0)} />
               <circle id="hg-head" cx="196" cy="110" r="28" stroke="#00303f" strokeWidth="6" fill="none" opacity={getHangmanOpacity(1)} />
               <line id="hg-body" x1="196" y1="138" x2="196" y2="200" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(2)} />
               <line id="hg-arm-l" x1="196" y1="155" x2="166" y2="175" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(3)} />
