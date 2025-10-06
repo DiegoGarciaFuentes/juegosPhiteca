@@ -1,12 +1,21 @@
 :root { 
-  --bg: #0f172a; 
-  --panel: #111827; 
-  --ink: #e5e7eb; 
-  --muted: #94a3b8; 
-  --accent: #22c55e; 
-  --accent-2: #ef4444; 
-  --card: #1f2937; 
-  --chip: #374151; 
+  /* Paleta Phiteca.es */
+  --phiteca-primary: #00303f;      /* Azul marino corporativo */
+  --phiteca-accent: #ffb41e;       /* Naranja dorado */
+  --phiteca-secondary: #cae4db;    /* Verde menta claro */
+  --phiteca-tertiary: #bd7e00;     /* Marrón dorado */
+  --phiteca-complement: #7a9e96;   /* Verde azulado */
+  --phiteca-neutral: #66868c;      /* Gris azulado */
+  
+  /* Variables de aplicación */
+  --bg: var(--phiteca-primary); 
+  --panel: var(--phiteca-secondary); 
+  --ink: var(--phiteca-primary); 
+  --muted: var(--phiteca-neutral); 
+  --accent: var(--phiteca-complement); 
+  --accent-2: var(--phiteca-tertiary); 
+  --card: var(--phiteca-secondary); 
+  --chip: var(--phiteca-complement); 
 }
 
 * { 
@@ -18,8 +27,8 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 24px;
-  background: radial-gradient(1000px 600px at 10% 5%, #0b1229 0%, var(--bg) 60%);
-  color: var(--ink);
+  background: linear-gradient(135deg, var(--phiteca-primary) 0%, #001a23 100%);
+  color: var(--phiteca-secondary);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   min-height: 100vh;
 }
@@ -35,11 +44,14 @@
 .header h1 { 
   font-size: clamp(22px, 4vw, 32px); 
   margin: 0; 
+  color: var(--phiteca-secondary);
+  text-shadow: 2px 2px 4px rgba(0, 48, 63, 0.3);
+  font-weight: 800;
 }
 
 .tag { 
   font-size: 12px; 
-  color: var(--muted); 
+  color: var(--phiteca-neutral); 
 }
 
 .grid { 
@@ -55,20 +67,20 @@
 }
 
 .panel { 
-  background: linear-gradient(180deg, var(--panel), #0b1220); 
-  border: 1px solid #1f2937; 
+  background: linear-gradient(180deg, var(--phiteca-secondary), rgba(202, 228, 219, 0.8)); 
+  border: 1px solid var(--phiteca-complement); 
   border-radius: 16px; 
   padding: 16px; 
-  box-shadow: 0 10px 30px rgba(0,0,0,.35); 
+  box-shadow: 0 10px 30px rgba(0, 48, 63, 0.3); 
 }
 
 .hangman { 
   height: 320px; 
   display: grid; 
   place-items: center; 
-  background: var(--card); 
+  background: rgba(255, 255, 255, 0.9); 
   border-radius: 12px; 
-  border: 1px solid #293241; 
+  border: 1px solid var(--phiteca-complement); 
 }
 
 .word { 
@@ -81,15 +93,16 @@
 }
 
 .word .slot { 
-  border-bottom: 3px solid #334155; 
+  border-bottom: 3px solid var(--phiteca-complement); 
   min-width: 26px; 
   text-align: center; 
   padding: 0 4px; 
+  color: var(--phiteca-primary);
 }
 
 .hint { 
   text-align: center; 
-  color: var(--muted); 
+  color: var(--phiteca-neutral); 
   font-size: 14px; 
   min-height: 20px; 
 }
@@ -108,13 +121,21 @@
 }
 
 button.key { 
-  background: var(--chip); 
-  color: var(--ink); 
-  border: 1px solid #475569; 
+  background: rgba(255, 255, 255, 0.95); 
+  color: var(--phiteca-primary); 
+  border: 2px solid var(--phiteca-complement); 
   border-radius: 10px; 
   padding: 10px 0; 
   font-weight: 600; 
   cursor: pointer; 
+  transition: all 0.2s ease;
+}
+
+button.key:hover:not(:disabled) { 
+  background: var(--phiteca-secondary); 
+  border-color: var(--phiteca-primary); 
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 48, 63, 0.2);
 }
 
 button.key:disabled { 
@@ -123,13 +144,17 @@ button.key:disabled {
 }
 
 .key.wrong { 
-  background: #3a1f23; 
-  border-color: #7f1d1d; 
+  background: var(--phiteca-tertiary); 
+  border-color: var(--phiteca-tertiary); 
+  color: white;
+  animation: shake 0.5s ease-in-out;
 }
 
 .key.right { 
-  background: #163421; 
-  border-color: #14532d; 
+  background: var(--phiteca-complement); 
+  border-color: var(--phiteca-complement); 
+  color: white;
+  animation: pulse 0.3s ease-in-out;
 }
 
 .controls { 
@@ -140,23 +165,48 @@ button.key:disabled {
 }
 
 .btn { 
-  background: #0b8f5a; 
-  border: 1px solid #14532d; 
-  color: white; 
+  background: var(--phiteca-accent); 
+  border: 1px solid var(--phiteca-accent); 
+  color: var(--phiteca-primary); 
   padding: 10px 14px; 
   border-radius: 12px; 
   font-weight: 700; 
   cursor: pointer; 
+  transition: all 0.2s ease;
+}
+
+.btn:hover { 
+  background: var(--phiteca-tertiary); 
+  border-color: var(--phiteca-tertiary); 
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 180, 30, 0.3);
 }
 
 .btn.secondary { 
-  background: #374151; 
-  border-color: #4b5563; 
+  background: var(--phiteca-complement); 
+  border-color: var(--phiteca-complement); 
+  color: white;
+}
+
+.btn.secondary:hover { 
+  background: var(--phiteca-primary); 
+  border-color: var(--phiteca-primary); 
+  color: var(--phiteca-secondary);
+  box-shadow: 0 4px 12px rgba(122, 158, 150, 0.3);
 }
 
 .btn.hint { 
-  background: #2563eb; 
-  border-color: #1e3a8a; 
+  background: var(--phiteca-primary); 
+  border-color: var(--phiteca-primary); 
+  color: var(--phiteca-secondary);
+}
+
+.btn.hint:hover { 
+  background: var(--phiteca-complement); 
+  border-color: var(--phiteca-complement); 
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 48, 63, 0.3);
 }
 
 .row { 
@@ -173,20 +223,32 @@ button.key:disabled {
 }
 
 .pill { 
-  background: var(--chip); 
+  background: var(--phiteca-complement); 
   padding: 6px 10px; 
   border-radius: 999px; 
   font-size: 12px; 
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(122, 158, 150, 0.3);
 }
 
 .pill.bad { 
-  background: #3a1f23; 
-  color: #fecaca; 
+  background: var(--phiteca-tertiary); 
+  color: white; 
+}
+
+.pill.bad:hover {
+  box-shadow: 0 2px 8px rgba(189, 126, 0, 0.3);
 }
 
 .pill.good { 
-  background: #163421; 
-  color: #bbf7d0; 
+  background: var(--phiteca-complement); 
+  color: white; 
 }
 
 .custom-box { 
@@ -197,55 +259,104 @@ textarea {
   width: 100%; 
   min-height: 90px; 
   border-radius: 10px; 
-  border: 1px solid #334155; 
-  background: #0b1220; 
-  color: var(--ink); 
+  border: 2px solid var(--phiteca-complement); 
+  background: rgba(255, 255, 255, 0.95); 
+  color: var(--phiteca-primary); 
   padding: 10px; 
+  transition: all 0.2s ease;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--phiteca-accent);
+  box-shadow: 0 0 0 3px rgba(255, 180, 30, 0.2);
+  transform: translateY(-1px);
+}
+
+textarea:hover {
+  border-color: var(--phiteca-primary);
 }
 
 .small { 
   font-size: 12px; 
-  color: var(--muted); 
+  color: var(--phiteca-neutral); 
 }
 
 .toast { 
   text-align: center; 
   font-weight: 700; 
   margin-top: 8px; 
+  padding: 8px 16px;
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .toast.win { 
-  color: var(--accent); 
+  color: var(--phiteca-complement); 
+  background: rgba(122, 158, 150, 0.1);
+  border: 1px solid var(--phiteca-complement);
 }
 
 .toast.lose { 
-  color: var(--accent-2); 
+  color: var(--phiteca-tertiary); 
+  background: rgba(189, 126, 0, 0.1);
+  border: 1px solid var(--phiteca-tertiary);
 }
 
 .note { 
   font-size: 12px; 
-  color: var(--muted); 
+  color: var(--phiteca-neutral); 
   margin-top: 8px; 
   text-align: center; 
 }
 
+/* Animaciones */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.word .slot {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
 /* Estilos para select e input */
 select, input {
-  background: #0b1220;
-  color: var(--ink);
-  border: 1px solid #334155;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--phiteca-primary);
+  border: 2px solid var(--phiteca-complement);
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 14px;
+  transition: all 0.2s ease;
 }
 
 select:focus, input:focus {
   outline: none;
-  border-color: #0b8f5a;
+  border-color: var(--phiteca-accent);
+  box-shadow: 0 0 0 3px rgba(255, 180, 30, 0.2);
+  transform: translateY(-1px);
+}
+
+select:hover, input:hover {
+  border-color: var(--phiteca-primary);
 }
 
 label {
-  color: var(--ink);
+  color: var(--phiteca-primary);
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 4px;
@@ -254,12 +365,14 @@ label {
 
 hr {
   border: none;
-  border-top: 1px solid #334155;
+  border-top: 1px solid var(--phiteca-complement);
   margin: 16px 0;
 }
 
 h3 {
-  color: var(--ink);
+  color: var(--phiteca-primary);
   font-size: 18px;
   margin: 0 0 12px 0;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 48, 63, 0.1);
 }
