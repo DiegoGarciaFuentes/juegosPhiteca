@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Clases personalizadas de colores PHITECA */
+@layer utilities {
+  /* Colores de fondo */
+  .bg-phiteca-primary { background-color: #00303f; }
+  .bg-phiteca-accent { background-color: #ffb41e; }
+  .bg-phiteca-secondary { background-color: #cae4db; }
+  .bg-phiteca-tertiary { background-color: #bd7e00; }
+  .bg-phiteca-complement { background-color: #7a9e96; }
+  .bg-phiteca-neutral { background-color: #66868c; }
+  .bg-phiteca-dark { background-color: #001a23; }
+  
+  /* Colores de texto */
+  .text-phiteca-primary { color: #00303f; }
+  .text-phiteca-accent { color: #ffb41e; }
+  .text-phiteca-secondary { color: #cae4db; }
+  .text-phiteca-tertiary { color: #bd7e00; }
+  .text-phiteca-complement { color: #7a9e96; }
+  .text-phiteca-neutral { color: #66868c; }
+  .text-phiteca-dark { color: #001a23; }
+  
+  /* Colores de borde */
+  .border-phiteca-primary { border-color: #00303f; }
+  .border-phiteca-accent { border-color: #ffb41e; }
+  .border-phiteca-secondary { border-color: #cae4db; }
+  .border-phiteca-tertiary { border-color: #bd7e00; }
+  .border-phiteca-complement { border-color: #7a9e96; }
+  .border-phiteca-neutral { border-color: #66868c; }
+  .border-phiteca-dark { border-color: #001a23; }
+  
+  /* Hover states */
+  .hover\:bg-phiteca-primary:hover { background-color: #001a23; }
+  .hover\:bg-phiteca-accent:hover { background-color: #bd7e00; }
+  .hover\:bg-phiteca-secondary:hover { background-color: #7a9e96; }
+  .hover\:bg-phiteca-complement:hover { background-color: #7a9e96; }
+  .hover\:text-phiteca-primary:hover { color: #00303f; }
+  .hover\:text-phiteca-accent:hover { color: #ffb41e; }
+  .hover\:text-phiteca-secondary:hover { color: #cae4db; }
+  .hover\:border-phiteca-primary:hover { border-color: #00303f; }
+  .hover\:border-phiteca-accent:hover { border-color: #ffb41e; }
+  .hover\:border-phiteca-secondary:hover { border-color: #cae4db; }
+  .hover\:border-phiteca-complement:hover { border-color: #7a9e96; }
+  
+  /* Gradientes personalizados */
+  .bg-gradient-phiteca-primary { background: linear-gradient(135deg, #00303f, #001a23); }
+  .bg-gradient-phiteca-accent { background: linear-gradient(135deg, #ffb41e, #bd7e00); }
+  .bg-gradient-phiteca-secondary { background: linear-gradient(135deg, #cae4db, #7a9e96); }
+}
