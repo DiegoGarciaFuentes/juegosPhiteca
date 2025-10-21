@@ -6,6 +6,7 @@
   --phiteca-tertiary: #bd7e00;     /* Marrón dorado */
   --phiteca-complement: #7a9e96;   /* Verde azulado */
   --phiteca-neutral: #66868c;      /* Gris azulado */
+  --phiteca-dark: #001a23;         /* Azul muy oscuro */
   
   /* Variables de aplicación */
   --bg: var(--phiteca-primary); 
@@ -297,7 +298,7 @@ textarea:hover {
 
 .toast.lose { 
   color: white; 
-  background: linear-gradient(135deg, var(--phiteca-primary), #001a23);
+  background: linear-gradient(135deg, var(--phiteca-primary), var(--phiteca-dark));
   border: 2px solid var(--phiteca-tertiary);
   box-shadow: 0 8px 24px rgba(0, 48, 63, 0.5);
   animation: defeatShake 1s ease-in-out;

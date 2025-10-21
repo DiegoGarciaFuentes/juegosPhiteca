@@ -5,7 +5,7 @@
   background: rgba(255, 255, 255, 0.95);
   padding: 20px;
   border-radius: 10px;
-  border: 2px solid #7a9e96;
+  border: 2px solid var(--phiteca-complement);
   box-shadow: 0 8px 16px rgba(0, 48, 63, 0.3);
 }
 
@@ -37,11 +37,11 @@
 .config-row input,
 .config-row select {
   padding: 5px 10px;
-  border: 2px solid #7a9e96;
+  border: 2px solid var(--phiteca-complement);
   border-radius: 4px;
   width: 100px;
   background: rgba(255, 255, 255, 0.9);
-  color: #00303f;
+  color: var(--phiteca-primary);
 }
 
 .board {
@@ -62,7 +62,7 @@
   justify-content: center;
   margin-top: 20px;
   padding-top: 10px;
-  border-top: 3px solid #007bff;
+  border-top: 3px solid var(--phiteca-accent);
 }
 
 .solution-row .hole {
@@ -94,8 +94,8 @@
 }
 
 .hole.active {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  border-color: var(--phiteca-accent);
+  box-shadow: 0 0 10px rgba(255, 180, 30, 0.3);
 }
 
 .feedback-hole {
@@ -115,9 +115,9 @@
 
 .btn {
   padding: 10px 20px;
-  background: #ffb41e;
-  color: #00303f;
-  border: 2px solid #ffb41e;
+  background: var(--phiteca-accent);
+  color: var(--phiteca-primary);
+  border: 2px solid var(--phiteca-accent);
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -126,31 +126,31 @@
 }
 
 .btn:hover:not(:disabled) {
-  background: #bd7e00;
-  border-color: #bd7e00;
+  background: var(--phiteca-tertiary);
+  border-color: var(--phiteca-tertiary);
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(255, 180, 30, 0.3);
 }
 
 .btn:disabled {
-  background: #66868c;
-  border-color: #66868c;
+  background: var(--phiteca-neutral);
+  border-color: var(--phiteca-neutral);
   color: white;
   cursor: not-allowed;
   opacity: 0.6;
 }
 
 .btn-secondary {
-  background: #7a9e96;
-  border-color: #7a9e96;
+  background: var(--phiteca-complement);
+  border-color: var(--phiteca-complement);
   color: white;
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: #00303f;
-  border-color: #00303f;
-  color: #cae4db;
+  background: var(--phiteca-primary);
+  border-color: var(--phiteca-primary);
+  color: var(--phiteca-secondary);
   box-shadow: 0 4px 12px rgba(122, 158, 150, 0.3);
 }
 
@@ -179,34 +179,34 @@
   height: 20px;
   border-radius: 50%;
   margin-right: 5px;
-  border: 2px solid #7a9e96;
+  border: 2px solid var(--phiteca-complement);
 }
 
 .peg.black {
   background: green;
-  border-color: #00303f;
+  border-color: var(--phiteca-primary);
 }
 
 .peg.white {
   background: orange;
-  border-color: #00303f;
+  border-color: var(--phiteca-primary);
 }
 
 .peg.gray {
   background: gray;
-  border-color: #00303f;
+  border-color: var(--phiteca-primary);
 }
 
 .feedback {
   margin: 20px 0;
   font-size: 18px;
   font-weight: bold;
-  color: #00303f;
+  color: var(--phiteca-primary);
 }
 
 .game-won {
   animation: victory-animation 2s ease-in-out forwards;
-  background: radial-gradient(circle, #ffb41e, #fff);
+  background: radial-gradient(circle, var(--phiteca-accent), #fff);
 }
 
 @keyframes victory-animation {
@@ -214,17 +214,17 @@
     background: #fff;
   }
   50% {
-    background: radial-gradient(circle, #ffb41e, #fff);
+    background: radial-gradient(circle, var(--phiteca-accent), #fff);
     transform: scale(1.1);
   }
   100% {
-    background: radial-gradient(circle, #ffb41e, #fff);
+    background: radial-gradient(circle, var(--phiteca-accent), #fff);
     transform: scale(1);
   }
 }
 
 .game-won-message {
-  color: #00303f;
+  color: var(--phiteca-primary);
   font-size: 2rem;
   text-transform: uppercase;
   animation: message-pop 1.5s ease-in-out;
@@ -246,7 +246,7 @@
 
 .game-lost {
   animation: defeat-animation 2s ease-in-out forwards;
-  background: linear-gradient(to bottom, #00303f, #001a23);
+  background: linear-gradient(to bottom, var(--phiteca-primary), var(--phiteca-dark));
 }
 
 @keyframes defeat-animation {
@@ -254,15 +254,15 @@
     background: #fff;
   }
   50% {
-    background: #00303f;
+    background: var(--phiteca-primary);
   }
   100% {
-    background: linear-gradient(to bottom, #001a23, #000f1a);
+    background: linear-gradient(to bottom, var(--phiteca-dark), #000f1a);
   }
 }
 
 .game-lost-message {
-  color: #bd7e00;
+  color: var(--phiteca-tertiary);
   font-size: 2rem;
   text-transform: uppercase;
   animation: message-slide 2s ease-in-out;

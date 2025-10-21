@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   const variantClasses = {
     primary: 'bg-phiteca-accent hover:bg-phiteca-tertiary text-phiteca-primary',
     secondary: 'bg-phiteca-secondary hover:bg-phiteca-complement text-phiteca-primary',
-    outline: 'border-2 border-phiteca-complement text-phiteca-primary hover:bg-phiteca-complement hover:text-phiteca-secondary',
+    outline: 'border-2 border-phiteca-complement text-phiteca-secondary hover:bg-phiteca-complement hover:text-phiteca-primary',
   };
   
   const sizeClasses = {

@@ -1,36 +1,19 @@
 import { Link } from 'react-router-dom'
 import HangmanGame from '../games/hangman/HangmanGame'
-import Logo from '../components/Logo'
+import Navigation from '../components/Navigation'
+import Button from '../components/Button'
 
 function Hangman() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-[#cae4db]">
+    <div className="min-h-screen bg-gradient-to-br from-white to-phiteca-secondary">
       {/* Navigation */}
-      <nav className="bg-white shadow-lg border-b-2 border-[#7a9e96]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <Link to="/" className="hover:opacity-80 transition-opacity">
-                  <Logo variant="primary" size="md" />
-                </Link>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              <Link to="/" className="text-[#00303f] hover:text-[#ffb41e] transition-colors font-medium">
-                ← Volver al Inicio
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation variant="light" />
 
       {/* Game Container */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-[#00303f] mb-4">🎯 Ahorcado</h1>
-          <p className="text-xl text-[#00303f]">
+          <h1 className="text-4xl font-bold text-phiteca-primary mb-4">🎯 Ahorcado</h1>
+          <p className="text-xl text-phiteca-primary">
             Adivina la palabra antes de que se complete el ahorcado
           </p>
         </div>

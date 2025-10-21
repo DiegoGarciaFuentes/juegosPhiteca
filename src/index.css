@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Variables CSS para colores PHITECA */
+:root {
+  --phiteca-primary: #00303f;
+  --phiteca-accent: #ffb41e;
+  --phiteca-secondary: #cae4db;
+  --phiteca-tertiary: #bd7e00;
+  --phiteca-complement: #7a9e96;
+  --phiteca-neutral: #66868c;
+  --phiteca-dark: #001a23;
+}
+
 /* Clases personalizadas de colores PHITECA */
 @layer utilities {
   /* Colores de fondo */

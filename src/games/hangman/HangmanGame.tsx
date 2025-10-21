@@ -248,22 +248,22 @@ const HangmanGame: React.FC = () => {
           <div className="hangman">
             <svg width="320" height="300" viewBox="0 0 320 300">
             {/* Horca */}
-            <line x1="20" y1="280" x2="160" y2="280" stroke="#7a9e96" strokeWidth="8" />
-            <line x1="60" y1="280" x2="60" y2="40" stroke="#7a9e96" strokeWidth="8" />
-            <line x1="56" y1="40" x2="200" y2="40" stroke="#7a9e96" strokeWidth="8" />
-            <line x1="196" y1="40" x2="196" y2="80" stroke="#7a9e96" strokeWidth="8" />
+            <line x1="20" y1="280" x2="160" y2="280" stroke="var(--phiteca-complement)" strokeWidth="8" />
+            <line x1="60" y1="280" x2="60" y2="40" stroke="var(--phiteca-complement)" strokeWidth="8" />
+            <line x1="56" y1="40" x2="200" y2="40" stroke="var(--phiteca-complement)" strokeWidth="8" />
+            <line x1="196" y1="40" x2="196" y2="80" stroke="var(--phiteca-complement)" strokeWidth="8" />
               
               {/* Partes del muñeco */}
-              <line id="hg-noose" x1="196" y1="80" x2="196" y2="82" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(0)} />
-              <circle id="hg-head" cx="196" cy="110" r="28" stroke="#00303f" strokeWidth="6" fill="none" opacity={getHangmanOpacity(1)} />
-              <line id="hg-body" x1="196" y1="138" x2="196" y2="200" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(2)} />
-              <line id="hg-arm-l" x1="196" y1="155" x2="166" y2="175" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(3)} />
-              <line id="hg-arm-r" x1="196" y1="155" x2="226" y2="175" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(4)} />
-              <line id="hg-leg-l" x1="196" y1="200" x2="172" y2="240" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(5)} />
-              <line id="hg-leg-r" x1="196" y1="200" x2="220" y2="240" stroke="#00303f" strokeWidth="6" opacity={getHangmanOpacity(6)} />
-              <circle id="hg-eye-l" cx="188" cy="105" r="2.8" fill="#00303f" opacity={getHangmanOpacity(7)} />
-              <circle id="hg-eye-r" cx="204" cy="105" r="2.8" fill="#00303f" opacity={getHangmanOpacity(8)} />
-              <path id="hg-mouth" d="M188 120 Q196 114 204 120" fill="none" stroke="#00303f" strokeWidth="3.5" opacity={getHangmanOpacity(9)} />
+              <line id="hg-noose" x1="196" y1="80" x2="196" y2="82" stroke="var(--phiteca-primary)" strokeWidth="6" opacity={getHangmanOpacity(0)} />
+              <circle id="hg-head" cx="196" cy="110" r="28" stroke="var(--phiteca-primary)" strokeWidth="6" fill="none" opacity={getHangmanOpacity(1)} />
+              <line id="hg-body" x1="196" y1="138" x2="196" y2="200" stroke="var(--phiteca-primary)" strokeWidth="6" opacity={getHangmanOpacity(2)} />
+              <line id="hg-arm-l" x1="196" y1="155" x2="166" y2="175" stroke="var(--phiteca-primary)" strokeWidth="6" opacity={getHangmanOpacity(3)} />
+              <line id="hg-arm-r" x1="196" y1="155" x2="226" y2="175" stroke="var(--phiteca-primary)" strokeWidth="6" opacity={getHangmanOpacity(4)} />
+              <line id="hg-leg-l" x1="196" y1="200" x2="172" y2="240" stroke="var(--phiteca-primary)" strokeWidth="6" opacity={getHangmanOpacity(5)} />
+              <line id="hg-leg-r" x1="196" y1="200" x2="220" y2="240" stroke="var(--phiteca-primary)" strokeWidth="6" opacity={getHangmanOpacity(6)} />
+              <circle id="hg-eye-l" cx="188" cy="105" r="2.8" fill="var(--phiteca-primary)" opacity={getHangmanOpacity(7)} />
+              <circle id="hg-eye-r" cx="204" cy="105" r="2.8" fill="var(--phiteca-primary)" opacity={getHangmanOpacity(8)} />
+              <path id="hg-mouth" d="M188 120 Q196 114 204 120" fill="none" stroke="var(--phiteca-primary)" strokeWidth="3.5" opacity={getHangmanOpacity(9)} />
             </svg>
           </div>
           
