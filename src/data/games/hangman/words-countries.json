@@ -1,0 +1,117 @@
+{
+  "id": "paises",
+  "displayName": "Países",
+  "words": [
+    {
+      "word": "ESPAÑA",
+      "hint": "País europeo con capital en Madrid",
+      "category": "Países"
+    },
+    {
+      "word": "ARGENTINA",
+      "hint": "País sudamericano famoso por el tango",
+      "category": "Países"
+    },
+    {
+      "word": "MEXICO",
+      "hint": "País norteamericano de habla hispana",
+      "category": "Países"
+    },
+    {
+      "word": "FRANCIA",
+      "hint": "País de la Torre Eiffel",
+      "category": "Países"
+    },
+    {
+      "word": "ITALIA",
+      "hint": "País con forma de bota",
+      "category": "Países"
+    },
+    {
+      "word": "ALEMANIA",
+      "hint": "País europeo central",
+      "category": "Países"
+    },
+    {
+      "word": "JAPON",
+      "hint": "Archipiélago asiático",
+      "category": "Países"
+    },
+    {
+      "word": "BRASIL",
+      "hint": "País más grande de Sudamérica",
+      "category": "Países"
+    },
+    {
+      "word": "CANADA",
+      "hint": "País al norte de Estados Unidos",
+      "category": "Países"
+    },
+    {
+      "word": "AUSTRALIA",
+      "hint": "País y continente a la vez",
+      "category": "Países"
+    },
+    {
+      "word": "CHINA",
+      "hint": "País más poblado del mundo",
+      "category": "Países"
+    },
+    {
+      "word": "PORTUGAL",
+      "hint": "País vecino de España",
+      "category": "Países"
+    },
+    {
+      "word": "COLOMBIA",
+      "hint": "País sudamericano de café",
+      "category": "Países"
+    },
+    {
+      "word": "PERU",
+      "hint": "País de Machu Picchu",
+      "category": "Países"
+    },
+    {
+      "word": "CHILE",
+      "hint": "País largo y estrecho",
+      "category": "Países"
+    },
+    {
+      "word": "NORUEGA",
+      "hint": "País escandinavo de fiordos",
+      "category": "Países"
+    },
+    {
+      "word": "SUECIA",
+      "hint": "País nórdico europeo",
+      "category": "Países"
+    },
+    {
+      "word": "EGIPTO",
+      "hint": "País de las pirámides",
+      "category": "Países"
+    },
+    {
+      "word": "GRECIA",
+      "hint": "Cuna de la civilización occidental",
+      "category": "Países"
+    },
+    {
+      "word": "TURQUIA",
+      "hint": "País entre Europa y Asia",
+      "category": "Países"
+    },
+    {
+      "word": "VENEZUELA",
+      "hint": "País del Salto Ángel",
+      "category": "Países"
+    },
+    {
+      "word": "ECUADOR",
+      "hint": "País atravesado por la línea ecuatorial",
+      "category": "Países"
+    }
+  ]
+}
+

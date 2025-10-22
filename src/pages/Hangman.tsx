@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
 import HangmanGame from '../games/hangman/HangmanGame'
 import Navigation from '../components/Navigation'
-import Button from '../components/Button'
 
 function Hangman() {
   return (

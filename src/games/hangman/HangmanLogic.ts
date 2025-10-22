@@ -1,16 +1,17 @@
-import type { HangmanConfig, WordEntry, GameState } from './types';
+import type { WordEntry, GameState } from './types';
+import { getRandomWord, getRandomWordFromTheme } from '../../data/games/hangman';
 
 export class HangmanLogic {
-  private config: HangmanConfig;
+  private maxAttempts: number;
   private currentGameState: GameState | null = null;
 
-  constructor(config: HangmanConfig) {
-    this.config = config;
+  constructor(maxAttempts: number) {
+    this.maxAttempts = maxAttempts;
   }
 
   // Iniciar nuevo juego
-  startNewGame(customWord?: WordEntry): GameState {
-    const randomWord = customWord || this.getRandomWord();
+  startNewGame(customWord?: WordEntry, themeId?: string): GameState {
+    const randomWord = customWord || this.getRandomWord(themeId);
     this.currentGameState = {
       currentWord: randomWord.word.toUpperCase(),
       guessedLetters: [],
@@ -23,9 +24,22 @@ export class HangmanLogic {
   }
 
   // Obtener palabra aleatoria
-  private getRandomWord(): WordEntry {
-    const randomIndex = Math.floor(Math.random() * this.config.words.length);
-    return this.config.words[randomIndex];
+  private getRandomWord(themeId?: string): WordEntry {
+    if (themeId && themeId !== 'mezcla') {
+      const word = getRandomWordFromTheme(themeId);
+      if (word) return word;
+    }
+    
+    const word = getRandomWord();
+    if (!word) {
+      // Fallback si no hay palabras disponibles
+      return {
+        word: "ERROR",
+        hint: "No hay palabras disponibles",
+        category: "Error"
+      };
+    }
+    return word;
   }
 
   // Adivinar letra
@@ -55,9 +69,9 @@ export class HangmanLogic {
       this.currentGameState.wrongAttempts++;
       
       // Verificar si perdió
-      if (this.currentGameState.wrongAttempts >= this.config.maxAttempts) {
-        this.currentGameState.gameStatus = 'lost';
-      }
+    if (this.currentGameState.wrongAttempts >= this.maxAttempts) {
+      this.currentGameState.gameStatus = 'lost';
+    }
     }
 
     return { ...this.currentGameState };

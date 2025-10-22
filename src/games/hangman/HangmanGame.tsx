@@ -1,71 +1,40 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import type { HangmanConfig } from './types';
 import { HangmanLogic } from './HangmanLogic';
+import { 
+  HANGMAN_THEMES, 
+  getThemeById, 
+  getAllWords, 
+  getThemeDisplayNames,
+  getDefaultSettings,
+  getDifficultyLevels,
+  getDifficultyLevel
+} from '../../data/games/hangman';
 import './HangmanGame.css';
 
 const HangmanGame: React.FC = () => {
-  // Estado del juego
-  const [allowedMisses, setAllowedMisses] = useState(6);
+  // Configuración por defecto
+  const defaultSettings = getDefaultSettings();
   
-  // Configuración del juego (usa allowedMisses)
-  const config: HangmanConfig = {
-    maxAttempts: allowedMisses,
-    words: [
-      { word: "PROGRAMACION", hint: "Actividad de crear software", category: "Tecnología" },
-      { word: "REACT", hint: "Biblioteca de JavaScript para interfaces", category: "Tecnología" },
-      { word: "TYPESCRIPT", hint: "Superset tipado de JavaScript", category: "Tecnología" },
-      { word: "COMPUTADORA", hint: "Máquina que procesa información", category: "Tecnología" },
-      { word: "ALGORITMO", hint: "Secuencia de pasos para resolver un problema", category: "Tecnología" }
-    ]
-  };
-
+  // Estado del juego
+  const [allowedMisses, setAllowedMisses] = useState(defaultSettings.maxAttempts);
+  
   // Lógica del juego (se recrea cuando cambia allowedMisses)
-  const hangmanLogic = useRef(new HangmanLogic(config));
+  const hangmanLogic = useRef(new HangmanLogic(allowedMisses));
   
   // Actualizar la configuración cuando cambie allowedMisses
   useEffect(() => {
-    hangmanLogic.current = new HangmanLogic(config);
+    hangmanLogic.current = new HangmanLogic(allowedMisses);
   }, [allowedMisses]);
   
   const [currentGame, setCurrentGame] = useState(() => hangmanLogic.current.startNewGame());
-  const [hintsLeft, setHintsLeft] = useState(3);
-  const [selectedTheme, setSelectedTheme] = useState('mezcla');
+  const [hintsLeft, setHintsLeft] = useState(defaultSettings.hintsPerGame);
+  const [selectedTheme, setSelectedTheme] = useState(defaultSettings.defaultTheme);
+  const [selectedDifficulty, setSelectedDifficulty] = useState('medium');
   const [customList, setCustomList] = useState<string>('');
   const [toast, setToast] = useState({ message: '', type: '' });
 
-  // Datos del banco de palabras
-  const BANK = {
-    animales: [
-      { word: "ELEFANTE", hint: "Mamífero grande", category: "Animales" },
-      { word: "MARIPOSA", hint: "Insecto", category: "Animales" },
-      { word: "PINGUINO", hint: "Ave fría", category: "Animales" },
-      { word: "CAMALEON", hint: "Reptil", category: "Animales" },
-      { word: "MURCIELAGO", hint: "Mamífero volador", category: "Animales" },
-      { word: "NANDU", hint: "Ave corredora", category: "Animales" }
-    ],
-    ciencia: [
-      { word: "FOTOSINTESIS", hint: "Plantas", category: "Ciencia" },
-      { word: "EVAPORACION", hint: "Líquido a gas", category: "Ciencia" },
-      { word: "ATOMO", hint: "Materia", category: "Ciencia" },
-      { word: "NEURONA", hint: "Célula nerviosa", category: "Ciencia" },
-      { word: "BACTERIA", hint: "Microorganismo", category: "Ciencia" }
-    ],
-    geografia: [
-      { word: "CORDILLERA", hint: "Montañas", category: "Geografía" },
-      { word: "PENINSULA", hint: "Casi isla", category: "Geografía" },
-      { word: "ARCHIPIELAGO", hint: "Grupo de islas", category: "Geografía" },
-      { word: "ECUADOR", hint: "Línea imaginaria", category: "Geografía" }
-    ],
-    verbos: [
-      { word: "ANALIZAR", hint: "Examinar", category: "Verbos" },
-      { word: "PROGRAMAR", hint: "Escribir código", category: "Verbos" },
-      { word: "INVESTIGAR", hint: "Buscar info", category: "Verbos" },
-      { word: "IMAGINAR", hint: "Representar", category: "Verbos" },
-      { word: "CONSTRUIR", hint: "Fabricar", category: "Verbos" }
-    ]
-  };
-
-  const ALL_TOPICS = ['animales', 'ciencia', 'geografia', 'verbos'];
+  // Datos del banco de palabras (ahora desde archivos JSON)
+  const ALL_TOPICS = HANGMAN_THEMES.map(theme => theme.id);
   const LETTERS = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
 
   // Utilidades
@@ -82,22 +51,24 @@ const HangmanGame: React.FC = () => {
         return { word: w.toUpperCase(), hint: h || '', category: 'Personalizada' };
       }).filter(({ word }) => !!word);
     } else if (ALL_TOPICS.includes(selectedTheme)) {
-      pool = BANK[selectedTheme as keyof typeof BANK];
+      const theme = getThemeById(selectedTheme);
+      pool = theme ? theme.words : [];
     } else {
-      pool = Object.values(BANK).flat();
+      // Mezcla: todas las palabras de todos los temas
+      pool = getAllWords();
     }
     
     return pool[Math.floor(Math.random() * pool.length)];
-  }, [selectedTheme, customList]);
+  }, [selectedTheme, customList, ALL_TOPICS]);
 
   // Iniciar nuevo juego
   const startGame = useCallback(() => {
     const selectedWord = pickWord();
-    const newGame = hangmanLogic.current.startNewGame(selectedWord);
+    const newGame = hangmanLogic.current.startNewGame(selectedWord, selectedTheme);
     setCurrentGame(newGame);
     setHintsLeft(3);
     setToast({ message: '', type: '' });
-  }, [pickWord]);
+  }, [pickWord, selectedTheme]);
 
   // Adivinar letra
   const onGuess = useCallback((letter: string) => {
@@ -135,6 +106,14 @@ const HangmanGame: React.FC = () => {
     setCurrentGame(prev => ({ ...prev, gameStatus: 'lost' }));
     setToast({ message: `La palabra era: "${currentGame.currentWord}"`, type: 'lose' });
   }, [currentGame.currentWord]);
+
+  // Aplicar configuración de dificultad
+  const applyDifficulty = useCallback(() => {
+    const difficultySettings = getDifficultyLevel(selectedDifficulty);
+    setAllowedMisses(difficultySettings.maxAttempts);
+    setHintsLeft(difficultySettings.hintsPerGame);
+    startGame();
+  }, [selectedDifficulty, startGame]);
 
   // Aplicar configuración - iniciar nuevo juego cuando cambie allowedMisses
   const applyConfig = useCallback(() => {
@@ -193,6 +172,7 @@ const HangmanGame: React.FC = () => {
       </button>
     );
   };
+
 
   // Renderizar palabra
   const renderWord = () => {
@@ -303,10 +283,11 @@ const HangmanGame: React.FC = () => {
           <label htmlFor="tema">Tema:</label>
           <select id="tema" value={selectedTheme} onChange={(e) => setSelectedTheme(e.target.value)}>
             <option value="mezcla">Mezcla</option>
-            <option value="animales">Animales</option>
-            <option value="ciencia">Ciencia</option>
-            <option value="geografia">Geografía</option>
-            <option value="verbos">Verbos</option>
+            {getThemeDisplayNames().map(theme => (
+              <option key={theme.id} value={theme.id}>
+                {theme.displayName}
+              </option>
+            ))}
           </select>
           
           <div className="custom-box">
@@ -325,7 +306,24 @@ const HangmanGame: React.FC = () => {
           
           <hr />
           
-          <h3>⚙️ Reglas</h3>
+          <h3>⚙️ Configuración</h3>
+          
+          <div className="row">
+            <label htmlFor="dificultad">Dificultad:</label>
+            <select 
+              id="dificultad" 
+              value={selectedDifficulty} 
+              onChange={(e) => setSelectedDifficulty(e.target.value)}
+            >
+              {getDifficultyLevels().map(level => (
+                <option key={level} value={level}>
+                  {level.charAt(0).toUpperCase() + level.slice(1)}
+                </option>
+              ))}
+            </select>
+            <button className="btn" onClick={applyDifficulty}>Aplicar</button>
+          </div>
+          
           <div className="row">
             <label htmlFor="vidas">Fallos permitidos:</label>
             <input

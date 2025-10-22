@@ -1,0 +1,111 @@
+{
+  "id": "geografia",
+  "displayName": "Geografía",
+  "words": [
+    {
+      "word": "CORDILLERA",
+      "hint": "Cadena de montañas",
+      "category": "Geografía"
+    },
+    {
+      "word": "PENINSULA",
+      "hint": "Tierra rodeada de agua por tres lados",
+      "category": "Geografía"
+    },
+    {
+      "word": "ARCHIPIELAGO",
+      "hint": "Conjunto de islas",
+      "category": "Geografía"
+    },
+    {
+      "word": "ECUADOR",
+      "hint": "Línea imaginaria que divide la Tierra",
+      "category": "Geografía"
+    },
+    {
+      "word": "CONTINENTE",
+      "hint": "Gran extensión de tierra",
+      "category": "Geografía"
+    },
+    {
+      "word": "DESIERTO",
+      "hint": "Zona árida con poca lluvia",
+      "category": "Geografía"
+    },
+    {
+      "word": "OCEANO",
+      "hint": "Gran masa de agua salada",
+      "category": "Geografía"
+    },
+    {
+      "word": "VOLCAN",
+      "hint": "Montaña que expulsa lava",
+      "category": "Geografía"
+    },
+    {
+      "word": "MERIDIANO",
+      "hint": "Línea imaginaria de polo a polo",
+      "category": "Geografía"
+    },
+    {
+      "word": "DELTA",
+      "hint": "Desembocadura de un río",
+      "category": "Geografía"
+    },
+    {
+      "word": "GLACIAR",
+      "hint": "Gran masa de hielo en movimiento",
+      "category": "Geografía"
+    },
+    {
+      "word": "MESETA",
+      "hint": "Terreno elevado y plano",
+      "category": "Geografía"
+    },
+    {
+      "word": "VALLE",
+      "hint": "Depresión entre montañas",
+      "category": "Geografía"
+    },
+    {
+      "word": "LATITUD",
+      "hint": "Distancia al ecuador",
+      "category": "Geografía"
+    },
+    {
+      "word": "CASCADA",
+      "hint": "Caída vertical de agua",
+      "category": "Geografía"
+    },
+    {
+      "word": "BAHIA",
+      "hint": "Entrada del mar en la costa",
+      "category": "Geografía"
+    },
+    {
+      "word": "ESTRECHO",
+      "hint": "Paso angosto entre dos masas de agua",
+      "category": "Geografía"
+    },
+    {
+      "word": "TROPICO",
+      "hint": "Zona cálida de la Tierra",
+      "category": "Geografía"
+    },
+    {
+      "word": "TSUNAMI",
+      "hint": "Ola gigante por terremoto marino",
+      "category": "Geografía"
+    },
+    {
+      "word": "FIORDO",
+      "hint": "Valle glaciar inundado",
+      "category": "Geografía"
+    },
+    {
+      "word": "SELVA",
+      "hint": "Bosque tropical denso",
+      "category": "Geografía"
+    }
+  ]
+}

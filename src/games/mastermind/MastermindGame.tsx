@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
-import type { GameConfig, Attempt, GameState } from './types';
-import { MastermindLogic, COLORS } from './MastermindLogic';
+import type { Attempt, GameState } from './types';
+import { MastermindLogic } from './MastermindLogic';
+import { 
+  getDefaultSettings, 
+  getDifficultyLevels
+} from '../../data/games/mastermind';
 import './MastermindGame.css';
 
 const MastermindGame: React.FC = () => {
+  // Configuración por defecto
+  const defaultSettings = getDefaultSettings();
+  
   // Estado del juego
   const [gameState, setGameState] = useState<GameState>('config');
-  const [config, setConfig] = useState<GameConfig>({
+  const [selectedDifficulty, setSelectedDifficulty] = useState('medium');
+  
+  // Configuración personalizada
+  const [customConfig, setCustomConfig] = useState({
     maxAttempts: 10,
     selectedColors: 6,
     allowDuplicates: true
@@ -15,17 +25,19 @@ const MastermindGame: React.FC = () => {
   // Estado del juego actual
   const [gameLogic, setGameLogic] = useState<MastermindLogic | null>(null);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
-  const [currentAttempt, setCurrentAttempt] = useState<string[]>(Array(4).fill(null));
+  const [currentAttempt, setCurrentAttempt] = useState<string[]>(Array(defaultSettings.codeLength).fill(null));
   const [feedback, setFeedback] = useState<string>('');
   const [showSolution, setShowSolution] = useState(false);
 
   // Iniciar nuevo juego
   const startGame = () => {
-    const logic = new MastermindLogic(config);
+    const logic = selectedDifficulty === 'custom' 
+      ? new MastermindLogic(customConfig)
+      : new MastermindLogic(selectedDifficulty);
     logic.startNewGame();
     setGameLogic(logic);
     setAttempts([]);
-    setCurrentAttempt(Array(4).fill(null));
+    setCurrentAttempt(Array(logic.getCodeLength()).fill(null));
     setFeedback('');
     setShowSolution(false);
     setGameState('playing');
@@ -33,10 +45,10 @@ const MastermindGame: React.FC = () => {
 
   // Seleccionar color
   const selectColor = (colIndex: number, isRightClick: boolean = false) => {
-    if (gameState !== 'playing') return;
+    if (gameState !== 'playing' || !gameLogic) return;
 
     const currentColor = currentAttempt[colIndex];
-    const availableColors = COLORS.slice(0, config.selectedColors);
+    const availableColors = gameLogic.getAvailableColors();
 
     let nextColor: string;
     if (isRightClick) {
@@ -70,14 +82,14 @@ const MastermindGame: React.FC = () => {
 
     const newAttempts = [...attempts, newAttempt];
     setAttempts(newAttempts);
-    setCurrentAttempt(Array(4).fill(null));
+    setCurrentAttempt(Array(gameLogic ? gameLogic.getCodeLength() : 4).fill(null));
 
     // Verificar si ganó o perdió
     if (gameLogic.isCorrectAttempt(validAttempt)) {
       setFeedback('¡Felicidades! Has ganado.');
       setGameState('won');
       setShowSolution(true);
-    } else if (newAttempts.length >= config.maxAttempts) {
+    } else if (newAttempts.length >= gameLogic.getMaxAttempts()) {
       setFeedback('¡Has perdido! Puedes intentarlo de nuevo.');
       setGameState('lost');
       setShowSolution(true);
@@ -88,7 +100,7 @@ const MastermindGame: React.FC = () => {
   const restartGame = () => {
     setGameState('config');
     setAttempts([]);
-    setCurrentAttempt(Array(4).fill(null));
+    setCurrentAttempt(Array(gameLogic ? gameLogic.getCodeLength() : 4).fill(null));
     setFeedback('');
     setShowSolution(false);
     setGameLogic(null);
@@ -107,40 +119,61 @@ const MastermindGame: React.FC = () => {
           <h2>Configuración del juego</h2>
           
           <div className="config-row">
-            <label htmlFor="attempts">Número de intentos:</label>
-            <input
-              type="number"
-              id="attempts"
-              min="4"
-              max="20"
-              value={config.maxAttempts}
-              onChange={(e) => setConfig(prev => ({ ...prev, maxAttempts: parseInt(e.target.value) }))}
-            />
-          </div>
-          
-          <div className="config-row">
-            <label htmlFor="colors">Número de colores:</label>
-            <input
-              type="number"
-              id="colors"
-              min="4"
-              max="8"
-              value={config.selectedColors}
-              onChange={(e) => setConfig(prev => ({ ...prev, selectedColors: parseInt(e.target.value) }))}
-            />
-          </div>
-          
-          <div className="config-row">
-            <label htmlFor="duplicates">¿Permitir colores repetidos?</label>
+            <label htmlFor="difficulty">Dificultad:</label>
             <select
-              id="duplicates"
-              value={config.allowDuplicates.toString()}
-              onChange={(e) => setConfig(prev => ({ ...prev, allowDuplicates: e.target.value === 'true' }))}
+              id="difficulty"
+              value={selectedDifficulty}
+              onChange={(e) => setSelectedDifficulty(e.target.value)}
             >
-              <option value="true">Sí</option>
-              <option value="false">No</option>
+              {getDifficultyLevels().map(level => (
+                <option key={level} value={level}>
+                  {level.charAt(0).toUpperCase() + level.slice(1)}
+                </option>
+              ))}
+              <option value="custom">🔧 Personalizado</option>
             </select>
           </div>
+
+          {/* Configuración personalizada */}
+          {selectedDifficulty === 'custom' && (
+            <>
+              <div className="config-row">
+                <label htmlFor="attempts">Número de intentos:</label>
+                <input
+                  type="number"
+                  id="attempts"
+                  min="4"
+                  max="20"
+                  value={customConfig.maxAttempts}
+                  onChange={(e) => setCustomConfig({...customConfig, maxAttempts: parseInt(e.target.value)})}
+                />
+              </div>
+              
+              <div className="config-row">
+                <label htmlFor="colors">Número de colores:</label>
+                <input
+                  type="number"
+                  id="colors"
+                  min="4"
+                  max="8"
+                  value={customConfig.selectedColors}
+                  onChange={(e) => setCustomConfig({...customConfig, selectedColors: parseInt(e.target.value)})}
+                />
+              </div>
+              
+              <div className="config-row">
+                <label htmlFor="duplicates">¿Permitir colores repetidos?</label>
+                <select
+                  id="duplicates"
+                  value={customConfig.allowDuplicates.toString()}
+                  onChange={(e) => setCustomConfig({...customConfig, allowDuplicates: e.target.value === 'true'})}
+                >
+                  <option value="true">Sí</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </>
+          )}
 
           <button className="btn" onClick={startGame}>
             Iniciar Juego
@@ -154,9 +187,9 @@ const MastermindGame: React.FC = () => {
           <h2>Cómo jugar</h2>
           <p>El objetivo del juego es adivinar el código secreto generado por el sistema.</p>
           <ul>
-            <li><strong>Colores disponibles:</strong> {COLORS.slice(0, config.selectedColors).join(', ')}</li>
-            <li><strong>Número de intentos:</strong> {config.maxAttempts}</li>
-            <li><strong>Colores repetidos:</strong> {config.allowDuplicates ? 'Permitidos' : 'No permitidos'}</li>
+            <li><strong>Colores disponibles:</strong> {gameLogic ? gameLogic.getAvailableColors().join(', ') : 'Cargando...'}</li>
+            <li><strong>Número de intentos:</strong> {gameLogic ? gameLogic.getMaxAttempts() : 'Cargando...'}</li>
+            <li><strong>Colores repetidos:</strong> {gameLogic ? (gameLogic.getAllowDuplicates() ? 'Permitidos' : 'No permitidos') : 'Cargando...'}</li>
           </ul>
           <h3>Interpretación del feedback:</h3>
           <ul>
@@ -179,7 +212,7 @@ const MastermindGame: React.FC = () => {
       {gameState !== 'config' && (
         <div className="board">
           {/* Filas de intentos */}
-          {Array.from({ length: config.maxAttempts }, (_, i) => {
+          {Array.from({ length: gameLogic ? gameLogic.getMaxAttempts() : 10 }, (_, i) => {
             const attempt = attempts[i];
             const isCurrentRow = i === attempts.length;
             const isActiveRow = isCurrentRow && gameState === 'playing';

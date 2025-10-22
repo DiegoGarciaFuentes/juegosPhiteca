@@ -1,0 +1,54 @@
+{
+  "id": "default",
+  "displayName": "Colores Clásicos",
+  "colors": [
+    {
+      "id": "red",
+      "name": "Rojo",
+      "hex": "#ef4444",
+      "category": "primary"
+    },
+    {
+      "id": "blue", 
+      "name": "Azul",
+      "hex": "#3b82f6",
+      "category": "primary"
+    },
+    {
+      "id": "green",
+      "name": "Verde", 
+      "hex": "#10b981",
+      "category": "primary"
+    },
+    {
+      "id": "yellow",
+      "name": "Amarillo",
+      "hex": "#f59e0b", 
+      "category": "primary"
+    },
+    {
+      "id": "orange",
+      "name": "Naranja",
+      "hex": "#f97316",
+      "category": "secondary"
+    },
+    {
+      "id": "purple",
+      "name": "Morado",
+      "hex": "#8b5cf6",
+      "category": "secondary"
+    },
+    {
+      "id": "pink",
+      "name": "Rosa",
+      "hex": "#ec4899",
+      "category": "secondary"
+    },
+    {
+      "id": "cyan",
+      "name": "Cian",
+      "hex": "#06b6d4",
+      "category": "secondary"
+    }
+  ]
+}

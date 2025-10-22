@@ -1,0 +1,111 @@
+{
+  "id": "ciencia",
+  "displayName": "Ciencia",
+  "words": [
+    {
+      "word": "FOTOSINTESIS",
+      "hint": "Proceso de las plantas para crear alimento",
+      "category": "Ciencia"
+    },
+    {
+      "word": "EVAPORACION",
+      "hint": "Cambio de líquido a gas",
+      "category": "Ciencia"
+    },
+    {
+      "word": "ATOMO",
+      "hint": "Unidad básica de la materia",
+      "category": "Ciencia"
+    },
+    {
+      "word": "NEURONA",
+      "hint": "Célula del sistema nervioso",
+      "category": "Ciencia"
+    },
+    {
+      "word": "BACTERIA",
+      "hint": "Microorganismo unicelular",
+      "category": "Ciencia"
+    },
+    {
+      "word": "MOLECULA",
+      "hint": "Conjunto de átomos unidos",
+      "category": "Ciencia"
+    },
+    {
+      "word": "GRAVEDAD",
+      "hint": "Fuerza que atrae los objetos",
+      "category": "Ciencia"
+    },
+    {
+      "word": "ENERGIA",
+      "hint": "Capacidad de realizar trabajo",
+      "category": "Ciencia"
+    },
+    {
+      "word": "ECOSISTEMA",
+      "hint": "Comunidad de seres vivos y su entorno",
+      "category": "Ciencia"
+    },
+    {
+      "word": "TEMPERATURA",
+      "hint": "Medida del calor",
+      "category": "Ciencia"
+    },
+    {
+      "word": "VOLCAN",
+      "hint": "Abertura en la tierra que expulsa lava",
+      "category": "Ciencia"
+    },
+    {
+      "word": "ELECTRICIDAD",
+      "hint": "Flujo de electrones",
+      "category": "Ciencia"
+    },
+    {
+      "word": "OXIGENO",
+      "hint": "Gas necesario para respirar",
+      "category": "Ciencia"
+    },
+    {
+      "word": "MAGNETISMO",
+      "hint": "Fuerza de atracción de los imanes",
+      "category": "Ciencia"
+    },
+    {
+      "word": "UNIVERSO",
+      "hint": "Todo lo que existe en el espacio",
+      "category": "Ciencia"
+    },
+    {
+      "word": "TELESCOPIO",
+      "hint": "Instrumento para observar objetos lejanos",
+      "category": "Ciencia"
+    },
+    {
+      "word": "CELULA",
+      "hint": "Unidad básica de los seres vivos",
+      "category": "Ciencia"
+    },
+    {
+      "word": "DENSIDAD",
+      "hint": "Relación entre masa y volumen",
+      "category": "Ciencia"
+    },
+    {
+      "word": "RESISTENCIA",
+      "hint": "Oposición al paso de la corriente",
+      "category": "Ciencia"
+    },
+    {
+      "word": "CROMOSOMA",
+      "hint": "Estructura que contiene ADN",
+      "category": "Ciencia"
+    },
+    {
+      "word": "MITOSIS",
+      "hint": "División celular",
+      "category": "Ciencia"
+    }
+  ]
+}

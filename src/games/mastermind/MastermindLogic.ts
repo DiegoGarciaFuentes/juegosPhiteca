@@ -1,25 +1,62 @@
-import type { GameConfig, FeedbackType } from './types';
-
-export const COLORS = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan"];
+import type { FeedbackType, GameConfig } from './types';
+import { 
+  getColorsForDifficulty, 
+  generateSecretCode,
+  getDifficultyLevel,
+  getAllColors
+} from '../../data/games/mastermind';
 
 export class MastermindLogic {
   private secretCode: string[] = [];
-  private config: GameConfig;
+  private difficulty: string | null;
+  private maxAttempts: number;
+  private codeLength: number;
+  private availableColors: string[];
+  private allowDuplicates: boolean;
+  private isCustomConfig: boolean;
 
-  constructor(config: GameConfig) {
-    this.config = config;
+  constructor(difficultyOrConfig: string | GameConfig) {
+    // Verificar si es configuración personalizada
+    if (typeof difficultyOrConfig === 'object') {
+      // Configuración personalizada
+      this.isCustomConfig = true;
+      this.difficulty = null;
+      this.maxAttempts = difficultyOrConfig.maxAttempts;
+      this.codeLength = 4; // Fijo para modo custom
+      this.allowDuplicates = difficultyOrConfig.allowDuplicates;
+      
+      const allColors = getAllColors();
+      this.availableColors = allColors.slice(0, difficultyOrConfig.selectedColors).map(c => c.id);
+    } else {
+      // Dificultad predefinida
+      this.isCustomConfig = false;
+      this.difficulty = difficultyOrConfig;
+      const colors = getColorsForDifficulty(difficultyOrConfig);
+      this.availableColors = colors.map(color => color.id);
+      
+      const settings = getDifficultyLevel(difficultyOrConfig);
+      this.maxAttempts = settings.maxAttempts;
+      this.codeLength = settings.codeLength;
+      this.allowDuplicates = settings.allowDuplicates;
+    }
   }
 
   // Generar código secreto
   generateSecretCode(): string[] {
-    const availableColors = COLORS.slice(0, this.config.selectedColors);
-    if (this.config.allowDuplicates) {
-      return Array.from({ length: 4 }, () => 
-        availableColors[Math.floor(Math.random() * availableColors.length)]
-      );
+    if (this.isCustomConfig) {
+      // Generar código personalizado
+      if (this.allowDuplicates) {
+        this.secretCode = Array.from({ length: this.codeLength }, () => {
+          return this.availableColors[Math.floor(Math.random() * this.availableColors.length)];
+        });
+      } else {
+        const shuffled = [...this.availableColors].sort(() => Math.random() - 0.5);
+        this.secretCode = shuffled.slice(0, this.codeLength);
+      }
     } else {
-      return this.shuffleArray([...availableColors]).slice(0, 4);
+      this.secretCode = generateSecretCode(this.difficulty!);
     }
+    return this.secretCode;
   }
 
   // Iniciar nuevo juego
@@ -74,13 +111,29 @@ export class MastermindLogic {
     return [...this.secretCode];
   }
 
-  // Mezclar array para colores sin duplicados
-  private shuffleArray<T>(array: T[]): T[] {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
+
+  // Obtener dificultad actual
+  getDifficulty(): string | null {
+    return this.difficulty;
+  }
+
+  // Verificar si permite duplicados
+  getAllowDuplicates(): boolean {
+    return this.allowDuplicates;
+  }
+
+  // Obtener colores disponibles
+  getAvailableColors(): string[] {
+    return this.availableColors;
+  }
+
+  // Obtener longitud del código
+  getCodeLength(): number {
+    return this.codeLength;
+  }
+
+  // Obtener máximo de intentos
+  getMaxAttempts(): number {
+    return this.maxAttempts;
   }
 }

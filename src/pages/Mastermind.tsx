@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
 import MastermindGame from '../games/mastermind/MastermindGame'
 import Navigation from '../components/Navigation'
-import Button from '../components/Button'
 
 function Mastermind() {
   return (

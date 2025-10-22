@@ -1,0 +1,52 @@
+{
+  "gameId": "mastermind",
+  "version": "1.0.0",
+  "displayName": "Mastermind",
+  "description": "Adivina la combinación de colores usando la lógica y el razonamiento",
+  "defaultSettings": {
+    "maxAttempts": 10,
+    "codeLength": 4,
+    "selectedColors": 6,
+    "allowDuplicates": true,
+    "showHints": true,
+    "showTimer": false
+  },
+  "difficultyLevels": {
+    "easy": {
+      "maxAttempts": 12,
+      "codeLength": 3,
+      "selectedColors": 4,
+      "allowDuplicates": true,
+      "description": "Fácil - 3 posiciones, 4 colores, 12 intentos"
+    },
+    "medium": {
+      "maxAttempts": 10,
+      "codeLength": 4,
+      "selectedColors": 6,
+      "allowDuplicates": true,
+      "description": "Medio - 4 posiciones, 6 colores, 10 intentos"
+    },
+    "hard": {
+      "maxAttempts": 8,
+      "codeLength": 4,
+      "selectedColors": 8,
+      "allowDuplicates": false,
+      "description": "Difícil - 4 posiciones, 8 colores, sin duplicados, 8 intentos"
+    },
+    "expert": {
+      "maxAttempts": 6,
+      "codeLength": 5,
+      "selectedColors": 8,
+      "allowDuplicates": false,
+      "description": "Experto - 5 posiciones, 8 colores, sin duplicados, 6 intentos"
+    }
+  },
+  "features": {
+    "customColors": true,
+    "difficultySelection": true,
+    "hintSystem": true,
+    "timer": false,
+    "statistics": false,
+    "achievements": false
+  }
+}

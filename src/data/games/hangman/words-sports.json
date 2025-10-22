@@ -1,0 +1,117 @@
+{
+  "id": "deportes",
+  "displayName": "Deportes",
+  "words": [
+    {
+      "word": "FUTBOL",
+      "hint": "Deporte con balón más popular del mundo",
+      "category": "Deportes"
+    },
+    {
+      "word": "BALONCESTO",
+      "hint": "Deporte de encestar en un aro",
+      "category": "Deportes"
+    },
+    {
+      "word": "TENIS",
+      "hint": "Deporte con raqueta y pelota",
+      "category": "Deportes"
+    },
+    {
+      "word": "NATACION",
+      "hint": "Deporte acuático",
+      "category": "Deportes"
+    },
+    {
+      "word": "ATLETISMO",
+      "hint": "Carreras y saltos",
+      "category": "Deportes"
+    },
+    {
+      "word": "CICLISMO",
+      "hint": "Deporte sobre bicicleta",
+      "category": "Deportes"
+    },
+    {
+      "word": "VOLEIBOL",
+      "hint": "Deporte con red en medio",
+      "category": "Deportes"
+    },
+    {
+      "word": "GIMNASIA",
+      "hint": "Ejercicios acrobáticos",
+      "category": "Deportes"
+    },
+    {
+      "word": "BOXEO",
+      "hint": "Combate con guantes",
+      "category": "Deportes"
+    },
+    {
+      "word": "ESGRIMA",
+      "hint": "Combate con espada",
+      "category": "Deportes"
+    },
+    {
+      "word": "SURF",
+      "hint": "Deslizarse sobre las olas",
+      "category": "Deportes"
+    },
+    {
+      "word": "ESCALADA",
+      "hint": "Subir montañas o paredes",
+      "category": "Deportes"
+    },
+    {
+      "word": "BEISBOL",
+      "hint": "Deporte con bate y pelota",
+      "category": "Deportes"
+    },
+    {
+      "word": "GOLF",
+      "hint": "Meter la pelota en hoyos",
+      "category": "Deportes"
+    },
+    {
+      "word": "RUGBY",
+      "hint": "Deporte similar al fútbol americano",
+      "category": "Deportes"
+    },
+    {
+      "word": "JUDO",
+      "hint": "Arte marcial japonés",
+      "category": "Deportes"
+    },
+    {
+      "word": "KARATE",
+      "hint": "Arte marcial de golpes",
+      "category": "Deportes"
+    },
+    {
+      "word": "ESQUI",
+      "hint": "Deslizarse sobre nieve",
+      "category": "Deportes"
+    },
+    {
+      "word": "PATINAJE",
+      "hint": "Deslizarse con patines",
+      "category": "Deportes"
+    },
+    {
+      "word": "BALONMANO",
+      "hint": "Lanzar balón a portería con las manos",
+      "category": "Deportes"
+    },
+    {
+      "word": "AJEDREZ",
+      "hint": "Juego de estrategia con tablero",
+      "category": "Deportes"
+    },
+    {
+      "word": "REMO",
+      "hint": "Navegar impulsando con remos",
+      "category": "Deportes"
+    }
+  ]
+}
+

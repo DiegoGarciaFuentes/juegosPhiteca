@@ -1,0 +1,122 @@
+{
+  "id": "profesiones",
+  "displayName": "Profesiones",
+  "words": [
+    {
+      "word": "MEDICO",
+      "hint": "Profesional de la salud",
+      "category": "Profesiones"
+    },
+    {
+      "word": "INGENIERO",
+      "hint": "Diseña y construye estructuras",
+      "category": "Profesiones"
+    },
+    {
+      "word": "PROFESOR",
+      "hint": "Enseña a los estudiantes",
+      "category": "Profesiones"
+    },
+    {
+      "word": "ARQUITECTO",
+      "hint": "Diseña edificios",
+      "category": "Profesiones"
+    },
+    {
+      "word": "ABOGADO",
+      "hint": "Experto en leyes",
+      "category": "Profesiones"
+    },
+    {
+      "word": "ENFERMERO",
+      "hint": "Cuida pacientes en hospitales",
+      "category": "Profesiones"
+    },
+    {
+      "word": "BOMBERO",
+      "hint": "Apaga incendios",
+      "category": "Profesiones"
+    },
+    {
+      "word": "VETERINARIO",
+      "hint": "Médico de animales",
+      "category": "Profesiones"
+    },
+    {
+      "word": "PERIODISTA",
+      "hint": "Informa sobre noticias",
+      "category": "Profesiones"
+    },
+    {
+      "word": "CIENTIFICO",
+      "hint": "Realiza investigaciones",
+      "category": "Profesiones"
+    },
+    {
+      "word": "ASTRONAUTA",
+      "hint": "Viaja al espacio",
+      "category": "Profesiones"
+    },
+    {
+      "word": "PROGRAMADOR",
+      "hint": "Crea software y aplicaciones",
+      "category": "Profesiones"
+    },
+    {
+      "word": "CARPINTERO",
+      "hint": "Trabaja con madera",
+      "category": "Profesiones"
+    },
+    {
+      "word": "ELECTRICISTA",
+      "hint": "Instala sistemas eléctricos",
+      "category": "Profesiones"
+    },
+    {
+      "word": "FOTOGRAFO",
+      "hint": "Captura imágenes",
+      "category": "Profesiones"
+    },
+    {
+      "word": "CHEF",
+      "hint": "Cocina profesionalmente",
+      "category": "Profesiones"
+    },
+    {
+      "word": "PILOTO",
+      "hint": "Maneja aviones",
+      "category": "Profesiones"
+    },
+    {
+      "word": "BIOLOGO",
+      "hint": "Estudia seres vivos",
+      "category": "Profesiones"
+    },
+    {
+      "word": "PSICOLOGO",
+      "hint": "Estudia la mente y conducta",
+      "category": "Profesiones"
+    },
+    {
+      "word": "ARTISTA",
+      "hint": "Crea obras de arte",
+      "category": "Profesiones"
+    },
+    {
+      "word": "MUSICO",
+      "hint": "Compone o interpreta música",
+      "category": "Profesiones"
+    },
+    {
+      "word": "DENTISTA",
+      "hint": "Cuida la salud dental",
+      "category": "Profesiones"
+    },
+    {
+      "word": "FARMACEUTICO",
+      "hint": "Prepara medicamentos",
+      "category": "Profesiones"
+    }
+  ]
+}
+

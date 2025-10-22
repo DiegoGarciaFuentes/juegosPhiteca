@@ -1,0 +1,116 @@
+{
+  "id": "animales",
+  "displayName": "Animales",
+  "words": [
+    {
+      "word": "ELEFANTE",
+      "hint": "Mamífero grande con trompa",
+      "category": "Animales"
+    },
+    {
+      "word": "MARIPOSA",
+      "hint": "Insecto con alas coloridas",
+      "category": "Animales"
+    },
+    {
+      "word": "PINGUINO",
+      "hint": "Ave que no vuela y vive en el frío",
+      "category": "Animales"
+    },
+    {
+      "word": "CAMALEON",
+      "hint": "Reptil que cambia de color",
+      "category": "Animales"
+    },
+    {
+      "word": "MURCIELAGO",
+      "hint": "Mamífero volador nocturno",
+      "category": "Animales"
+    },
+    {
+      "word": "NANDU",
+      "hint": "Ave corredora sudamericana",
+      "category": "Animales"
+    },
+    {
+      "word": "DELFIN",
+      "hint": "Mamífero marino inteligente",
+      "category": "Animales"
+    },
+    {
+      "word": "JIRAFA",
+      "hint": "Animal con cuello muy largo",
+      "category": "Animales"
+    },
+    {
+      "word": "COCODRILO",
+      "hint": "Reptil acuático con mandíbula fuerte",
+      "category": "Animales"
+    },
+    {
+      "word": "COLIBRI",
+      "hint": "Ave pequeña que aletea muy rápido",
+      "category": "Animales"
+    },
+    {
+      "word": "KOALA",
+      "hint": "Marsupial australiano que come eucalipto",
+      "category": "Animales"
+    },
+    {
+      "word": "TIGRE",
+      "hint": "Felino grande con rayas",
+      "category": "Animales"
+    },
+    {
+      "word": "SERPIENTE",
+      "hint": "Reptil sin patas que se arrastra",
+      "category": "Animales"
+    },
+    {
+      "word": "HORMIGA",
+      "hint": "Insecto trabajador que vive en colonias",
+      "category": "Animales"
+    },
+    {
+      "word": "BALLENA",
+      "hint": "Mamífero marino gigante",
+      "category": "Animales"
+    },
+    {
+      "word": "AGUILA",
+      "hint": "Ave rapaz de gran envergadura",
+      "category": "Animales"
+    },
+    {
+      "word": "AVESTRUZ",
+      "hint": "Ave más grande del mundo",
+      "category": "Animales"
+    },
+    {
+      "word": "RINOCERONTE",
+      "hint": "Mamífero grande con cuerno en la nariz",
+      "category": "Animales"
+    },
+    {
+      "word": "CANGURO",
+      "hint": "Marsupial que salta de Australia",
+      "category": "Animales"
+    },
+    {
+      "word": "HIPOPOTAMO",
+      "hint": "Mamífero acuático muy grande y pesado",
+      "category": "Animales"
+    },
+    {
+      "word": "TORTUGA",
+      "hint": "Reptil con caparazón",
+      "category": "Animales"
+    },
+    {
+      "word": "LEOPARDO",
+      "hint": "Felino con manchas circulares",
+      "category": "Animales"
+    }
+  ]
+}

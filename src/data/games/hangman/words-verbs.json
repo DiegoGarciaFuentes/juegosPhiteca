@@ -1,0 +1,111 @@
+{
+  "id": "verbos",
+  "displayName": "Verbos",
+  "words": [
+    {
+      "word": "ANALIZAR",
+      "hint": "Examinar detalladamente",
+      "category": "Verbos"
+    },
+    {
+      "word": "PROGRAMAR",
+      "hint": "Escribir código de computadora",
+      "category": "Verbos"
+    },
+    {
+      "word": "INVESTIGAR",
+      "hint": "Buscar información",
+      "category": "Verbos"
+    },
+    {
+      "word": "IMAGINAR",
+      "hint": "Representar en la mente",
+      "category": "Verbos"
+    },
+    {
+      "word": "CONSTRUIR",
+      "hint": "Edificar o fabricar",
+      "category": "Verbos"
+    },
+    {
+      "word": "DESARROLLAR",
+      "hint": "Hacer crecer o evolucionar",
+      "category": "Verbos"
+    },
+    {
+      "word": "DESCUBRIR",
+      "hint": "Encontrar algo oculto",
+      "category": "Verbos"
+    },
+    {
+      "word": "REFLEXIONAR",
+      "hint": "Pensar profundamente",
+      "category": "Verbos"
+    },
+    {
+      "word": "OBSERVAR",
+      "hint": "Mirar con atención",
+      "category": "Verbos"
+    },
+    {
+      "word": "EXPERIMENTAR",
+      "hint": "Probar o vivir algo",
+      "category": "Verbos"
+    },
+    {
+      "word": "TRANSFORMAR",
+      "hint": "Cambiar de forma",
+      "category": "Verbos"
+    },
+    {
+      "word": "COMUNICAR",
+      "hint": "Transmitir información",
+      "category": "Verbos"
+    },
+    {
+      "word": "ORGANIZAR",
+      "hint": "Poner orden",
+      "category": "Verbos"
+    },
+    {
+      "word": "COLABORAR",
+      "hint": "Trabajar en conjunto",
+      "category": "Verbos"
+    },
+    {
+      "word": "INTERPRETAR",
+      "hint": "Explicar el significado",
+      "category": "Verbos"
+    },
+    {
+      "word": "INNOVAR",
+      "hint": "Crear algo nuevo",
+      "category": "Verbos"
+    },
+    {
+      "word": "EXPLORAR",
+      "hint": "Recorrer un lugar desconocido",
+      "category": "Verbos"
+    },
+    {
+      "word": "CLASIFICAR",
+      "hint": "Ordenar por categorías",
+      "category": "Verbos"
+    },
+    {
+      "word": "SINTETIZAR",
+      "hint": "Resumir lo esencial",
+      "category": "Verbos"
+    },
+    {
+      "word": "DEMOSTRAR",
+      "hint": "Probar con evidencia",
+      "category": "Verbos"
+    },
+    {
+      "word": "MEMORIZAR",
+      "hint": "Guardar en la memoria",
+      "category": "Verbos"
+    }
+  ]
+}
