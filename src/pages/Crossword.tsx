@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CrosswordGame from '../games/crossword/CrosswordGame'
+import CrosswordGame from '../games/crossword-v1/CrosswordGame'
 import Logo from '../components/Logo'
 
 function Crossword() {

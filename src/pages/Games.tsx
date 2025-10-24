@@ -35,7 +35,7 @@ function Games() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Game Card 1 - Mastermind */}
             <div className="bg-gradient-to-br from-[#ffb41e] to-[#bd7e00] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all hover:transform hover:-translate-y-1">
               <div className="text-4xl mb-4">🧠</div>
@@ -62,7 +62,20 @@ function Games() {
               </Link>
             </div>
 
-            {/* Game Card 3 - Ahorcado */}
+            {/* Game Card 3 - Crucigrama */}
+            <div className="bg-gradient-to-br from-[#ff6b6b] to-[#ee5a52] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all hover:transform hover:-translate-y-1">
+              <div className="text-4xl mb-4">🧩</div>
+              <h3 className="text-xl font-semibold mb-2">Crucigrama</h3>
+              <p className="text-white/90 mb-4">Crucigrama con funcionalidades avanzadas</p>
+              <Link 
+                to="/games/crossword2" 
+                className="bg-white text-[#00303f] px-4 py-2 rounded-lg font-semibold hover:bg-[#cae4db] transition-colors inline-block"
+              >
+                Jugar
+              </Link>
+            </div>
+
+            {/* Game Card 4 - Ahorcado */}
             <div className="bg-gradient-to-br from-[#cae4db] to-[#7a9e96] rounded-xl p-6 text-[#00303f] shadow-lg hover:shadow-xl transition-all hover:transform hover:-translate-y-1">
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-semibold mb-2">Ahorcado</h3>

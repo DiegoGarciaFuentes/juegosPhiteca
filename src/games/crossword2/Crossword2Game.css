@@ -1,0 +1,714 @@
+/* Crossword2 Game Styles - Converted from original CSS */
+:root {
+  --cell: 40px;
+  --gap: 2px;
+  --fg: #222;
+  --bg: #ffffff; /* Fondo blanco limpio */
+  --primary: #0f766e;
+  --muted: #e5e7eb;
+  --unused: #111827; /* Negro oscuro para celdas no usadas */
+  --active: #fef3c7; /* ámbar claro */
+  --cursor: #fde68a; /* ámbar más intenso para la celda seleccionada */
+  --wrong: #ef4444; /* rojo tenue para validación */
+  --right: #10b981; /* verde tenue para validación correcta */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.crossword2-game {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--fg);
+  background: transparent; /* Sin fondo para que se vea el fondo de la página */
+  display: flex;
+  min-height: auto; /* Sin altura mínima para que no cubra toda la página */
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.crossword2-game header {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.crossword2-game h1 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin: 0 0 4px 0;
+}
+
+.crossword2-game .toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.crossword2-game button {
+  appearance: none;
+  border: none;
+  background: var(--primary);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.crossword2-game button.secondary {
+  background: #334155;
+}
+
+.crossword2-game button.ghost {
+  background: white;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.crossword2-game button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.crossword2-game .layout {
+  width: min(1100px, 95vw);
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 380px);
+  gap: 22px;
+  align-items: start;
+  overflow: hidden; /* Prevenir overflow del layout */
+}
+
+@media (max-width: 860px) {
+  .crossword2-game .layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .crossword2-game .grid-wrap {
+    min-height: 350px; /* Altura ajustada para móvil */
+    padding: 15px;
+  }
+}
+
+.crossword2-game .surface {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  overflow: hidden; /* Prevenir que el contenido se salga */
+  max-width: 100%; /* Asegurar que no exceda el ancho del contenedor */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar contenido verticalmente */
+}
+
+.crossword2-game .grid-wrap {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px; /* Altura mayor para mejor centrado */
+  padding: 20px; /* Espaciado adicional */
+}
+
+.crossword2-game .crossword {
+  display: grid;
+  gap: var(--gap);
+  background: var(--muted);
+  padding: var(--gap);
+  border-radius: 12px;
+  outline: none;
+  margin: 0 auto; /* Centrado horizontal adicional */
+  max-width: fit-content; /* Ajustar al contenido */
+}
+
+.crossword2-game .cell {
+  width: var(--cell);
+  height: var(--cell);
+  display: grid;
+  place-items: center;
+  position: relative;
+  font-weight: 800;
+  font-size: 18px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  user-select: none;
+  transition: background 0.12s ease;
+}
+
+.crossword2-game .cell.unused {
+  background: var(--unused);
+  border-color: var(--unused);
+}
+
+.crossword2-game .cell.active {
+  background: var(--active);
+}
+
+.crossword2-game .cell.cursor {
+  background: var(--cursor);
+  box-shadow: 0 0 0 2px #f59e0b inset;
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.08);
+  }
+}
+
+.crossword2-game .cell.wrong {
+  box-shadow: 0 0 0 2px var(--wrong) inset;
+}
+
+.crossword2-game .cell.right {
+  box-shadow: 0 0 0 2px var(--right) inset;
+}
+
+.crossword2-game .cell.revealed {
+  position: relative;
+  box-shadow: 0 0 0 2px var(--right) inset;
+}
+
+.crossword2-game .cell.revealed::after {
+  content: '🔒';
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.crossword2-game .number {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #e5e7eb;
+}
+
+.crossword2-game .cell:not(.unused) .number {
+  color: #374151;
+}
+
+.crossword2-game .legend h3 {
+  margin: 0.25rem 0;
+}
+
+.crossword2-game .legend ul {
+  padding-left: 1.1rem;
+  margin: 0.35rem 0 1rem 0;
+}
+
+.crossword2-game .legend li {
+  margin: 0.2rem 0;
+  cursor: pointer;
+}
+
+.crossword2-game .legend li.active {
+  background: #fef3c7; /* ámbar claro más visible */
+  border: 2px solid #f59e0b; /* borde ámbar */
+  border-radius: 6px;
+  position: relative;
+  font-weight: 600; /* texto más grueso */
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2); /* sombra sutil */
+}
+
+.crossword2-game .legend li.active::before {
+  content: '• ';
+  color: #0f766e;
+  font-weight: 900;
+  margin-right: 2px;
+}
+
+.crossword2-game .meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.crossword2-game .small {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Configuración */
+.crossword2-game .config-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--phiteca-complement);
+  margin-top: 20px;
+}
+
+.crossword2-game .config-section h2 {
+  color: var(--phiteca-primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.crossword2-game .config-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.crossword2-game .config-row label {
+  min-width: 120px;
+  font-weight: 600;
+  color: var(--phiteca-primary);
+}
+
+.crossword2-game .config-row select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid var(--phiteca-complement);
+  border-radius: 6px;
+  font-size: 16px;
+  background: white;
+}
+
+.crossword2-game .config-row select:focus {
+  outline: none;
+  border-color: var(--phiteca-primary);
+  box-shadow: 0 0 0 3px rgba(0, 48, 63, 0.1);
+}
+
+.crossword2-game .btn {
+  background: var(--phiteca-primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.crossword2-game .btn:hover {
+  background: var(--phiteca-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 48, 63, 0.3);
+}
+
+@media print {
+  .crossword2-game {
+    background: white;
+    padding: 0;
+  }
+  
+  .crossword2-game header,
+  .crossword2-game .meta {
+    display: none;
+  }
+  
+  .crossword2-game .surface {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .crossword2-game .layout {
+    width: 100%;
+    gap: 12px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crossword2-game {
+    padding: 10px;
+  }
+  
+  .crossword2-game .config-section {
+    padding: 20px;
+  }
+  
+  .crossword2-game .config-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .crossword2-game .config-row label {
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+}
+
+/* Instrucciones del juego */
+.crossword2-game .instructions {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.crossword2-game .instructions h3 {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.crossword2-game .instructions-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.crossword2-game .instruction-section {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.crossword2-game .instruction-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.crossword2-game .instruction-section ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.crossword2-game .instruction-section li {
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.crossword2-game .instruction-section strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Acordeón de instrucciones */
+.crossword2-game .instructions-accordion {
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.crossword2-game .instructions-accordion details {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.crossword2-game .instructions-accordion summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #374151;
+  background: #f1f5f9;
+  border-radius: 8px 8px 0 0;
+  list-style: none;
+  transition: background-color 0.2s;
+}
+
+.crossword2-game .instructions-accordion summary:hover {
+  background: #e2e8f0;
+}
+
+.crossword2-game .instructions-accordion details[open] summary {
+  border-radius: 8px 8px 0 0;
+}
+
+.crossword2-game .instructions-accordion .instructions-content {
+  padding: 1rem;
+  background: white;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Acordeón de herramientas */
+.crossword2-game .tools-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.crossword2-game .tools-accordion details {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.crossword2-game .tools-accordion summary {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  list-style: none;
+  transition: background-color 0.2s;
+  font-size: 0.875rem;
+}
+
+.crossword2-game .tools-accordion summary:hover {
+  background: #e5e7eb;
+}
+
+.crossword2-game .tools-accordion details[open] summary {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.crossword2-game .toolbar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+}
+
+.crossword2-game .button-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.crossword2-game .button-row button {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  justify-content: center;
+}
+
+.crossword2-game .toolbar-group button {
+  width: 100%;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  justify-content: center;
+}
+
+/* Campo de definición actual */
+.crossword2-game .current-clue-display {
+  background: #f8fafc;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+}
+
+.crossword2-game .current-clue-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.crossword2-game .clue-number {
+  font-weight: 700;
+  color: #0f766e;
+  font-size: 1.1rem;
+  min-width: 2rem;
+}
+
+.crossword2-game .clue-text {
+  color: #374151;
+  font-size: 1rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Responsive para móvil */
+@media (max-width: 860px) {
+  .crossword2-game .tools-accordion {
+    margin-bottom: 1rem;
+  }
+  
+  .crossword2-game .current-clue-display {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .crossword2-game .clue-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Botones de control debajo del crucigrama */
+.crossword2-game .control-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+}
+
+/* Grupo de interruptor unificado */
+.crossword2-game .toggle-group {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.crossword2-game .toggle-group button {
+  min-width: 120px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.crossword2-game .toggle-group button:first-child {
+  border-radius: 0;
+}
+
+.crossword2-game .toggle-group button:last-child {
+  border-radius: 0;
+}
+
+.crossword2-game .toggle-group button.toggle-active {
+  background: #00303f;
+  color: white;
+}
+
+.crossword2-game .toggle-group button.toggle-inactive {
+  background: white;
+  color: #374151;
+}
+
+.crossword2-game .toggle-group button.toggle-inactive:hover {
+  background: #f9fafb;
+}
+
+/* Botón Regenerar separado */
+.crossword2-game .control-buttons button.secondary {
+  min-width: 120px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 2px solid #dc2626;
+  background: #dc2626;
+  color: white;
+}
+
+.crossword2-game .control-buttons button.secondary:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Celdas descubiertas (no se pueden borrar) */
+.crossword2-game .cell.discovered {
+  background-color: #fef3c7 !important;
+  border-color: #f59e0b !important;
+  color: #92400e !important;
+  font-weight: 700;
+  cursor: not-allowed;
+}
+
+.crossword2-game .cell.discovered::after {
+  content: "🔒";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+/* Validación visual */
+.crossword2-game .validation-correct {
+  background-color: #dcfce7 !important;
+  border-color: #16a34a !important;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2) !important;
+  transition: all 0.3s ease;
+}
+
+.crossword2-game .validation-incorrect {
+  background-color: #fef2f2 !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+  transition: all 0.3s ease;
+}
+
+/* Responsive para botones de control */
+@media (max-width: 768px) {
+  .crossword2-game .control-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .crossword2-game .toggle-group {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .crossword2-game .toggle-group button {
+    flex: 1;
+  }
+  
+  .crossword2-game .control-buttons button.secondary {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  /* Responsive para filas de botones */
+  .crossword2-game .button-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .crossword2-game .button-row button {
+    width: 100%;
+  }
+}
+
+/* Responsive para instrucciones */
+@media (max-width: 768px) {
+  .crossword2-game .instructions-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .crossword2-game .instruction-section {
+    padding: 0.5rem;
+  }
+}

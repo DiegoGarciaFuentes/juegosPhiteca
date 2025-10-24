@@ -1,0 +1,54 @@
+{
+  "gameId": "crossword2",
+  "version": "2.0.0",
+  "displayName": "Crucigrama",
+  "description": "Crucigrama con funcionalidades avanzadas",
+  "defaultSettings": {
+    "maxWords": 10,
+    "gridSize": 15,
+    "showHints": true,
+    "showTimer": false,
+    "allowReveal": true
+  },
+  "difficultyLevels": {
+    "easy": {
+      "maxWords": 5,
+      "gridSize": 10,
+      "showHints": true,
+      "allowReveal": true,
+      "description": "Fácil - 5 palabras, pistas disponibles"
+    },
+    "medium": {
+      "maxWords": 8,
+      "gridSize": 12,
+      "showHints": true,
+      "allowReveal": true,
+      "description": "Medio - 8 palabras, pistas disponibles"
+    },
+    "hard": {
+      "maxWords": 12,
+      "gridSize": 15,
+      "showHints": false,
+      "allowReveal": false,
+      "description": "Difícil - 12 palabras, sin pistas"
+    },
+    "expert": {
+      "maxWords": 15,
+      "gridSize": 18,
+      "showHints": false,
+      "allowReveal": false,
+      "timeLimit": 1800,
+      "description": "Experto - 15 palabras, sin pistas, tiempo límite"
+    }
+  },
+  "features": {
+    "customWords": true,
+    "difficultySelection": true,
+    "hintSystem": true,
+    "timer": true,
+    "statistics": true,
+    "achievements": true,
+    "multiplayer": false
+  }
+}
+

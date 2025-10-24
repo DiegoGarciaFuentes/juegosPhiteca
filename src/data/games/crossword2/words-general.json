@@ -1,0 +1,245 @@
+{
+  "id": "naturaleza",
+  "displayName": "Naturaleza",
+  "description": "Palabras relacionadas con la naturaleza y el medio ambiente",
+  "words": [
+    {
+      "word": "BOSQUE",
+      "clue": "Lugar donde crecen muchos árboles",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "TORMENTA",
+      "clue": "Fenómeno atmosférico con lluvia y relámpagos",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 8
+    },
+    {
+      "word": "CÉSPED",
+      "clue": "Planta verde que crece en el suelo y cubre grandes áreas",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "AVE",
+      "clue": "Animal que vuela y pone huevos",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 3
+    },
+    {
+      "word": "SOL",
+      "clue": "Fuente de luz natural que ilumina el día",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 3
+    },
+    {
+      "word": "RÍO",
+      "clue": "Corriente natural de agua que desemboca en el mar o en otro río",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 3
+    },
+    {
+      "word": "LAGO",
+      "clue": "Gran acumulación de agua dulce en el interior de la tierra",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 4
+    },
+    {
+      "word": "MAR",
+      "clue": "Gran masa de agua salada que cubre la mayor parte de la Tierra",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 3
+    },
+    {
+      "word": "OLA",
+      "clue": "Movimiento ondulatorio del agua del mar",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 3
+    },
+    {
+      "word": "NUBE",
+      "clue": "Masa visible de gotas de agua o cristales de hielo en la atmósfera",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 4
+    },
+    {
+      "word": "VIENTO",
+      "clue": "Movimiento del aire",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "MONTAÑA",
+      "clue": "Gran elevación natural del terreno",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 8
+    },
+    {
+      "word": "VALLE",
+      "clue": "Depresión del terreno entre montañas",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "ISLA",
+      "clue": "Porción de tierra rodeada de agua por todas partes",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 4
+    },
+    {
+      "word": "ARENA",
+      "clue": "Pequeñas partículas de rocas, frecuente en playas y desiertos",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "DESIERTO",
+      "clue": "Región árida con escasa vegetación",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 8
+    },
+    {
+      "word": "HIELO",
+      "clue": "Agua en estado sólido",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "NIEVE",
+      "clue": "Precipitación de cristales de hielo",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "ROCÍO",
+      "clue": "Gotas de agua que se condensan por la noche",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "HOJA",
+      "clue": "Órgano de las plantas que realiza la fotosíntesis",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 4
+    },
+    {
+      "word": "FLOR",
+      "clue": "Estructura reproductiva de muchas plantas",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 4
+    },
+    {
+      "word": "RAÍZ",
+      "clue": "Parte de la planta que absorbe agua y nutrientes",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 4
+    },
+    {
+      "word": "TRONCO",
+      "clue": "Parte principal y leñosa del árbol",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "SELVA",
+      "clue": "Bosque tropical muy denso",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "PRADERA",
+      "clue": "Extensión grande y plana cubierta de hierba",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 7
+    },
+    {
+      "word": "OCÉANO",
+      "clue": "Cada una de las grandes extensiones de agua salada del planeta",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "MAREA",
+      "clue": "Subida y bajada periódica del nivel del mar",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "ARENAL",
+      "clue": "Terreno cubierto de arena",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "CASCADA",
+      "clue": "Caída de agua desde cierta altura",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 7
+    },
+    {
+      "word": "GLACIAR",
+      "clue": "Masa de hielo que se desplaza lentamente",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 7
+    },
+    {
+      "word": "VOLCÁN",
+      "clue": "Abertura en la corteza terrestre por la que salen magma y gases",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 6
+    },
+    {
+      "word": "FAUNA",
+      "clue": "Conjunto de animales de una región",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "FLORA",
+      "clue": "Conjunto de plantas de una región",
+      "difficulty": "easy",
+      "category": "Naturaleza",
+      "length": 5
+    },
+    {
+      "word": "PÁRAMO",
+      "clue": "Terreno yermo y frío de gran altitud",
+      "difficulty": "medium",
+      "category": "Naturaleza",
+      "length": 6
+    }
+  ]
+}
